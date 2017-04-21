@@ -1,3 +1,5 @@
+node.default['apt']['compile_time_update'] = true
+
 include_recipe 'apt'
 
 package 'awscli'
@@ -7,6 +9,7 @@ package 'direnv'
 package 'docker.io'
 package 'encfs'
 package 'gdebi'
+package 'git'
 package 'graphviz'
 package 'libcurl4-openssl-dev'
 package 'libssl-dev'
@@ -20,7 +23,9 @@ package 'r-base'
 package 'r-base-core'
 package 'resolvconf'
 package 'ruby-dev'
+package 'subversion'
 package 'tree'
+package 'vagrant'
 package 'zfsutils-linux'
 
 gem_package 'erubis'
@@ -41,3 +46,10 @@ end
 package 'account-plugin-flickr' do
   action :remove
 end
+
+
+# https://www.charlesproxy.com/documentation/installation/apt-repository/
+# apt-key adv --keyserver pgp.mit.edu --recv-keys 1AD28806
+# sudo sh -c 'echo deb https://www.charlesproxy.com/packages/apt/ charles-proxy3 main > /etc/apt/sources.list.d/charles.list'
+# sudo apt-get update
+# sudo apt-get install charles-proxy
