@@ -2,6 +2,11 @@ node.default['apt']['compile_time_update'] = true
 
 include_recipe 'apt'
 
+package 'libc6:i386'
+package 'libncurses5:i386'
+package 'libstdc++6:i386'
+package 'lib32z1 libbz2-1.0:i386'
+
 package 'awscli'
 package 'build-essential'
 package 'chromium-browser'
@@ -18,7 +23,9 @@ package 'libxt-dev'
 package 'libcairo2-dev'
 package 'lxd'
 package 'myrepos'
+package 'maven'
 package 'openssl'
+package 'openssh-server'
 package 'openvpn'
 package 'python3'
 package 'r-base'
