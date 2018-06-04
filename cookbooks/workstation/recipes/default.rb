@@ -9,11 +9,13 @@ package 'lib32z1'
 package 'libbz2-1.0:i386'
 
 package 'apt-cacher-ng'
+package 'autoconf'
 package 'awscli'
 package 'build-essential'
 package 'chromium-browser'
 package 'direnv'
-package 'docker-ce'
+package 'docker'
+package 'docker.io'
 package 'encfs'
 package 'gdebi'
 package 'git'
@@ -21,14 +23,16 @@ package 'graphviz'
 package 'htop'
 package 'jq'
 package 'libcurl4-openssl-dev'
+package 'libsdl2-dev'
 package 'libssl-dev'
 package 'libxt-dev'
 package 'libcairo2-dev'
+package 'libtool'
+package 'libtool-bin'
 package 'lxd'
 package 'myrepos'
 package 'maven'
 package 'nodejs'
-package 'nodejs-legacy'
 package 'npm'
 package 'openssl'
 package 'openssh-server'
@@ -68,6 +72,14 @@ package 'account-plugin-flickr' do
   action :remove
 end
 
+
+file '/etc/sysctl.d/idea.conf' do
+  content 'fs.inotify.max_user_watches = 524288'
+end
+
+bash 'update_sysctl' do
+  code 'sysctl -p --system'
+end
 
 # https://www.charlesproxy.com/documentation/installation/apt-repository/
 # apt-key adv --keyserver pgp.mit.edu --recv-keys 1AD28806
