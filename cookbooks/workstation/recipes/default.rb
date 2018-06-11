@@ -32,6 +32,7 @@ package 'libtool-bin'
 package 'lxd'
 package 'myrepos'
 package 'maven'
+package 'net-tools'
 package 'nodejs'
 package 'npm'
 package 'openssl'
@@ -40,6 +41,7 @@ package 'openvpn'
 package 'pandoc'
 package 'pgadmin3'
 package 'python3'
+package 'python3-pip'
 package 'qemu-utils'
 package 'r-base'
 package 'r-base-core'
@@ -72,7 +74,21 @@ package 'account-plugin-flickr' do
   action :remove
 end
 
+group 'dialout' do
+  action :modify
+  members 'matthew'
+  append true
+end
 
+group 'plugdev' do
+  action :modify
+  members 'matthew'
+  append true
+end
+
+
+
+#for IDEA
 file '/etc/sysctl.d/idea.conf' do
   content 'fs.inotify.max_user_watches = 524288'
 end
@@ -80,6 +96,15 @@ end
 bash 'update_sysctl' do
   code 'sysctl -p --system'
 end
+
+
+# for DOCKER
+group 'docker' do
+  action :modify
+  members 'matthew'
+  append true
+end
+
 
 # https://www.charlesproxy.com/documentation/installation/apt-repository/
 # apt-key adv --keyserver pgp.mit.edu --recv-keys 1AD28806
